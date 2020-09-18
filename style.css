@@ -1,0 +1,234 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: hsl(210, 46%, 95%);
+    font-size: 13px;
+    font-family: 'Manrope', sans-serif;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.preview{
+    display:flex;
+    flex-direction: row;
+    width: 60vw;
+    border-radius: 2vw;
+}
+
+.preview__photo{
+    width: 40%;
+    overflow: hidden;
+    background-color: #fff;
+    border-radius: 1vw 0 0 1vw;
+}
+
+.preview__photo-image{
+    width: 120%;
+    max-height: 400px;
+    height: auto;
+    display: block;
+}
+
+.preview__description{
+    width: 70%;
+    background-color: #fff;
+    border-radius: 0 1vw 1vw 0;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.preview__description-caption{
+    font-weight: 700;
+    font-size: 25px;
+    margin: 10px;
+    color: hsl(217, 19%, 35%);
+}
+
+.preview__description-text{
+    font-weight: 500;
+    margin: 10px;
+    color: hsl(214, 17%, 51%);
+}
+
+.preview__description-person{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: auto 10px 10px;
+}
+
+.person__avatar{
+    position: relative;
+    left: -30px;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+}
+
+.person__description{
+    position: relative;
+    left: -30px;
+    margin: 0 10px;
+    width: 200px;
+}
+
+.person__description-name{
+    font-weight: 700;
+}
+
+.person__description-date{
+    font-weight: 500;
+    color: hsl(214, 17%, 51%);
+}
+
+.person__description-link{
+    position: relative;
+    left: calc(100% - 15px - 10px - 15px);
+    border-radius: 15px;
+    width: 30px;
+    height: 30px;
+    background-color: hsl(210, 46%, 95%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.person__description-link:hover{
+    background-color: hsl(210, 16%, 85%);
+}
+
+.person__description-link img{
+    width: 15px;
+    height: 15px;
+}
+
+/*social media block*/
+.social{
+    display: none;
+    letter-spacing: 4px;
+    font-size: 12px;
+    position: relative;
+    top: calc(100% - 10px - 25px);
+    /*right border of component - half of social's width - preview__description padding - half of icon's width*/
+    left: calc(100% - 30px - 40px - 10px - 200px - 10px - 25px);
+    top: -70px;
+    right: 0;
+    color: hsl(212, 23%, 69%);
+    height :46px;
+    width: 250px;
+    background: hsl(217, 19%, 35%);
+    padding: 5px 0;
+    list-style: none;
+    border-radius: 5px;
+    margin: -23px -125px;
+}
+
+.social__icons{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 8px;
+}
+
+.social:after{
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 5px auto;
+    height: 0;
+    width: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 20px solid hsl(217, 19%, 35%);
+}
+
+.person__description-link:hover ~ .social{
+    transition: all .5s;
+    display: block;
+}
+
+.social__icons-icon{
+    width: 1.5em;
+    height: 1.5em;
+}
+
+/*it makes design a little bit adaptive*/
+@media screen and (max-width: 800px) {
+
+    .preview{ 
+        flex-direction: column;
+        width: 90vw;
+        height: 100vh;
+    }
+
+    .preview__photo, .preview__description{ width: 100%; }
+
+    .preview__photo-image{
+        width: 100%;
+        height: auto;
+        border-radius: 3vw 3vw 0 0;
+    }
+    .preview__description-person {
+        margin: 20px 10px 0px 10px;
+    }
+
+    .preview__description-caption{
+        font-size: 17px;
+    }
+
+    .social:after{
+        display: none;
+    }
+
+    .social{
+        font-size: 12px;
+        left: -15px;
+        margin: -30px -40px -40px -40px;
+        top: calc(100% - 10px - 20px);
+        width: calc(100% + 30px + 20px + 10px);
+        height: 65px;
+        padding: 15px 100px 0px 0px;
+    }
+
+    .person__description-link{
+        position: relative;
+        left: calc(100% - 15px - 10px);
+        top: 0;
+        right: 0;
+        z-index: 999;
+    }
+
+    .person__description-link:hover{
+        top: 5px;
+    }
+    
+    .person__description-link:hover ~ .person__avatar, .person__description-link:hover ~ .person__description{
+        display: none;
+    }
+
+    .person__avatar{
+        position: relative;
+        left: -30px;
+        top: 0;
+        right: 0;
+    }
+
+    .person__description{
+        position: relative;
+        left: -30px;
+        top: 0;
+        right: 0;
+    }
+
+}
